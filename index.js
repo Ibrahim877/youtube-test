@@ -3,7 +3,7 @@ const app = express()
 const ffmpeg = require('ffmpeg')
 const fs = require('fs')
 const youtubedl = require('youtube-dl')
-
+const PORT = process.env.PORT || 3000
 
 app.get('/', (req, res) =>  {
     const path = 'video/gta.mp4'
@@ -61,6 +61,6 @@ app.get('/video/:videoId', (req, res) =>  {
 })
 
 
-app.listen(3000, () =>  {
+app.listen(PORT, () =>  {
     console.log('App running...')
 })
