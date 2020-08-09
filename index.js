@@ -45,11 +45,11 @@ app.get('/video/:videoId', (req, res) =>  {
     video.on('info', function(info) {
         let title = info._filename;
 
-        video.pipe(fs.createWriteStream('video/'+title))
+        video.pipe(fs.createWriteStream(''+title))
         video.on('complete', function complete(info) {
             'use strict'
             console.log('filename: ' + info._filename + ' already downloaded.')
-            res.status(200).send('video/'+title)
+            res.status(200).send(''+title)
         })
 
     })
